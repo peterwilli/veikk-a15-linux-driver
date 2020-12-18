@@ -1,0 +1,9 @@
+FROM fedora:33
+RUN dnf install -y wget
+RUN dnf install -y git zsh
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN dnf install -y fedora-packager fedora-review
+RUN usermod -a -G mock root
+RUN ln -s /bin/zsh /usr/bin/enter
+
+RUN echo "Done!"
